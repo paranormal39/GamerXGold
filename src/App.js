@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import basic from "./BasicExample"
 import { Unity, useUnityContext } from "react-unity-webgl";
+//import { autofill } from 'xrpl/dist/npm/sugar';
 
 function App() {
   const { unityProvider } = useUnityContext({
@@ -11,8 +14,17 @@ function App() {
     codeUrl: "build/webglgxg.wasm",
   });
 
+  const h1 = <h1>header test</h1>
+
   return (
-    <Unity unityProvider={unityProvider} style={{ width: 800, height: 600 }} />
+    <><h1>
+    
+    </h1>
+    
+    <div style={{textAlign:'center'}}>
+      <Unity unityProvider={unityProvider}style={{ width: 800, height: 600}} />
+      </div></>
+
   );
 }
 
