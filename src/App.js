@@ -2,8 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import basic from "./BasicExample"
+import {Route, BrowserRouter as Router,Switch} from 'react-router-dom';
 import { Unity, useUnityContext } from "react-unity-webgl";
+import Basicform from './BasicForm';
+import BasicExample from './BasicExample';
+import ReactDOM from 'react-dom';
+import BasicForm from './BasicForm';
+import unityld from './Pages/Unityloader'
 //import { autofill } from 'xrpl/dist/npm/sugar';
 
 function App() {
@@ -15,17 +20,30 @@ function App() {
   });
 
   const h1 = <h1>header test</h1>
-
+  
   return (
-    <><h1>
     
-    </h1>
+   
+    <>
+    <BasicExample />
+    <div className='App-header'>
+      <h1>
+       
+        
+      </h1>
+      
+      <div  className='App'>
+     
+      <Basicform/>
+      
+      </div>
+    </div>
     
-    <div style={{textAlign:'center'}}>
-      <Unity unityProvider={unityProvider}style={{ width: 800, height: 600}} />
-      </div></>
+    </>
+   
 
   );
 }
+
 
 export default App;
