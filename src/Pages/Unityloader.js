@@ -13,7 +13,7 @@ function Unityloader(){
     return(
         <>
         <div>
-
+        <Unity unityProvider={unityProvider} style={{ width: 800, height: 600 }} />
         </div>
         </>
     );

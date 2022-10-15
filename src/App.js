@@ -9,6 +9,7 @@ import BasicExample from './BasicExample';
 import ReactDOM from 'react-dom';
 import BasicForm from './BasicForm';
 import unityld from './Pages/Unityloader'
+import Unityloader from './Pages/Unityloader';
 //import { autofill } from 'xrpl/dist/npm/sugar';
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
       
       <div  className='App'>
      
-      <Basicform/>
+      <Unityloader/>
       
       </div>
     </div>
