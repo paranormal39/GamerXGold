@@ -7,18 +7,19 @@ function BasicExample() {
   return (
     <Navbar className='App-Header'>
       <Container>
-        <Navbar.Brand href="#home">GXG BattleGrounds</Navbar.Brand>
+        <Navbar.Brand href="/">GXG BattleGrounds</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">About</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/signup">Sign up</Nav.Link>
             <NavDropdown title="Games" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">GXG Chat</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item href="/game1">GXG Chat</NavDropdown.Item>
+              <NavDropdown.Item href="/game2">
                 589 Challenge
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">coming soon</NavDropdown.Item>
+              <NavDropdown.Item href="#/">coming soon</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Mobile Games
