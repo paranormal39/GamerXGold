@@ -1,19 +1,28 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
-require("dotenv").config({ path: "./.env" });
-const port = process.env.PORT || 5000;
-app.use(cors());
-app.use(express.json());
-app.use(require("./routes/record"));
-// get driver connection
-const dbo = require("./db/conn");
- 
-app.listen(port, () => {
-  // perform a database connection when server starts
-  dbo.connectToServer(function (err) {
-    if (err) console.error(err);
- 
-  });
-  console.log(`Server is running on port: ${port}`);
-});
+const express = require('express')
+const path = require('path')
+const colors = require('colors')
+const dotenv = require('dotenv').config()
+const connectDB = require('./config/db')
+const {errorHandler} = require('./middleware/errorMiddleware')
+const port = process.env.PORT || 5000
+
+connectDB()
+
+const app = express()
+
+app.use(express.json())
+app.use(express.urlencoded({extended:false}))
+
+app.use('/api/goals', require('./routes/goalRoutes'))
+app.use('/api/users', require('./routes/userRoutes'))
+
+app.use(errorHandler)
+if(process.env.NODE_ENV ==='production'){
+    app.use(express.static(path.join(__dirname,'../frontend/build')))
+
+    app.get('*',(req,res) => res.sendFile(path.resolve(__dirname,'../','frontend','build','index.html')))
+}
+else{
+    app.get('/',(req,res)=>res.send())
+}
+app.listen(port,() => console.log(`Server started on port ${port}`))
